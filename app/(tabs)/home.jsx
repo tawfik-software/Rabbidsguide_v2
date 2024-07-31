@@ -103,7 +103,7 @@ const Home = () => {
                     style={{
                       position: "absolute",
                       bottom: 0,
-                      left: Platform.OS === "ios" ? 246 : 345,
+                      left: Platform.OS === "ios" ? 346 : 345,
                     }}
                   />
                 </TouchableOpacity>
