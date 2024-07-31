@@ -18,7 +18,7 @@ const imageMap = {
 
 const SavedArticleCard = ({ key, image }) => {
   return (
-    <TouchableOpacity className="relative w-[45%]" key={key}>
+    <TouchableOpacity className="relative w-[45%] mr-[18px]" key={key}>
       <Image
         source={imageMap[image]}
         className="rounded-xl w-[170px] h-[170px] mt-4"

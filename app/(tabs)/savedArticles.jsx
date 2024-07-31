@@ -58,14 +58,15 @@ const savedArticles = () => {
         </View>
         <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
           <View className="gap-y-3 pb-[90px]">
-            {articles.length === 0 ? (
-              <Text>Loading...</Text>
-            ) : (
-              articles.map((article) => (
-                <SavedArticleCard key={article.id} image={article.image} />
-              ))
-            )}
-
+            <View className="flex-row flex-wrap">
+              {articles.length === 0 ? (
+                <Text>Loading...</Text>
+              ) : (
+                articles.map((article) => (
+                  <SavedArticleCard key={article.id} image={article.image} />
+                ))
+              )}
+            </View>
             {/* <View className="flex-row">
               <TouchableOpacity className="relative w-[45%]">
                 <Image

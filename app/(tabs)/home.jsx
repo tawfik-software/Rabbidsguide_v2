@@ -76,7 +76,7 @@ const Home = () => {
                   onPress={() =>
                     router.push({
                       pathname: "/ubisoft",
-                      params: { id: article.id },
+                      params: { id: article.id, saved: article.saved },
                     })
                   }
                   key={key}

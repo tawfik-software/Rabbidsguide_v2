@@ -12,7 +12,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import { useLocalSearchParams } from "expo-router";
 import { useSQLiteContext } from "expo-sqlite/next";
-
+import BookMark from "../components/svg/icons/bookmark";
 const imageMap = {
   "usernav.jpeg": require("../assets/images/usernav.jpeg"),
   "content_second_img.png": require("../assets/images/content_second_img.png"),
@@ -29,7 +29,7 @@ const imageMap = {
 
 const Ubisoft = () => {
   const navigation = useNavigation();
-  const { id } = useLocalSearchParams();
+  const { id, saved } = useLocalSearchParams();
   console.log(id);
   const [contents, setContents] = useState([]);
   const [firstImg, setFirstImg] = useState("");
@@ -96,10 +96,11 @@ const Ubisoft = () => {
         </Text>
         <TouchableOpacity
           style={{ position: "absolute", top: 18, right: 60 }}
-          className="bg-[#eee] rounded-full p-[1px]"
+          className="bg-[#eee] rounded-full p-[2px]"
           onPress={() => handleSaveArticle(id)}
         >
-          <Ionicons name="bookmark" size={26} color="black" />
+          {/* <Ionicons name="bookmark" size={26} color="black" /> */}
+          <BookMark color={saved ? "#f59e4e" : "#000"} />
         </TouchableOpacity>
         <View
           style={{ position: "absolute", top: 18, right: 16 }}
