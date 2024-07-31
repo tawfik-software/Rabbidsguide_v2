@@ -99,7 +99,7 @@ const Ubisoft = () => {
           className="bg-[#eee] rounded-full p-[1px]"
           onPress={() => handleSaveArticle(id)}
         >
-          <Ionicons name="close-outline" size={26} color="black" />
+          <Ionicons name="bookmark" size={26} color="black" />
         </TouchableOpacity>
         <View
           style={{ position: "absolute", top: 18, right: 16 }}
