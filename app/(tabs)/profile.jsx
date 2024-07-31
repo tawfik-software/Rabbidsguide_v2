@@ -48,7 +48,7 @@ const profile = () => {
                 style={{ right: 15 }}
               />
               <Text className="text-black text-md font-mRegular text-lg">
-                Rate Us
+                Contact Us
               </Text>
             </View>
             <View>
@@ -64,7 +64,7 @@ const profile = () => {
                 style={{ right: 15 }}
               />
               <Text className="text-black text-md font-mRegular text-lg">
-                Rate Us
+                Share with friends
               </Text>
             </View>
             <View>
@@ -83,7 +83,7 @@ const profile = () => {
                 style={{ right: 15 }}
               />
               <Text className="text-black text-md font-mRegular text-lg">
-                Rate Us
+                About us
               </Text>
             </View>
             <View>
@@ -99,7 +99,23 @@ const profile = () => {
                 style={{ right: 15 }}
               />
               <Text className="text-black text-md font-mRegular text-lg">
-                Rate Us
+                Terms and Conditions
+              </Text>
+            </View>
+            <View>
+              <AntDesign name="arrowright" size={16} color="black" />
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity className="bg-[#f0eded] w-full rounded-2xl flex-row items-center justify-between px-6 py-3 my-1">
+            <View className="flex-row items-center gap-x-2">
+              <Entypo
+                name="map"
+                size={24}
+                color="black"
+                style={{ right: 15 }}
+              />
+              <Text className="text-black text-md font-mRegular text-lg">
+                Privacy Policy
               </Text>
             </View>
             <View>
