@@ -8,11 +8,9 @@ import {
   TouchableOpacity,
   Dimensions,
   ImageBackground,
-  Platform,
 } from "react-native";
-import React, { useState, useLayoutEffect, useRef, useEffect } from "react";
+import React, { useState, useLayoutEffect, useRef } from "react";
 import { useRouter, useNavigation } from "expo-router";
-import { useSQLiteContext } from "expo-sqlite/next";
 
 const { width, height } = Dimensions.get("window");
 
@@ -76,19 +74,6 @@ const Slide = ({ item }) => {
 };
 
 const about = () => {
-  const db = useSQLiteContext();
-
-  useEffect(() => {
-    db.withTransactionAsync(async () => {
-      await getChaptersData();
-    });
-  }, [db]);
-
-  async function getChaptersData() {
-    const result = await db.getAllAsync(`SELECT * FROM chapters`);
-    console.log(result);
-  }
-
   const navigation = useNavigation();
   const router = useRouter();
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);

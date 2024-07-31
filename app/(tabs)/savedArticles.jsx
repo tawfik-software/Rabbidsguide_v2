@@ -11,6 +11,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useSQLiteContext } from "expo-sqlite/next";
 import Bookmark from "../../components/svg/icons/bookmark";
+import SavedArticleCard from "../../components/ui/SavedArticleCard";
 
 const savedArticles = () => {
   const db = useSQLiteContext();
@@ -18,7 +19,10 @@ const savedArticles = () => {
   const [articles, setArticle] = useState([]);
 
   async function getArticlesData() {
-    const result = await db.getAllAsync(`SELECT * FROM articles`);
+    const result = await db.getAllAsync(
+      `SELECT * FROM articles WHERE saved = 1`
+    );
+    setArticle(result);
     console.log(result);
   }
 
@@ -54,7 +58,15 @@ const savedArticles = () => {
         </View>
         <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
           <View className="gap-y-3 pb-[90px]">
-            <View className="flex-row">
+            {articles.length === 0 ? (
+              <Text>Loading...</Text>
+            ) : (
+              articles.map((article) => (
+                <SavedArticleCard key={article.id} image={article.image} />
+              ))
+            )}
+
+            {/* <View className="flex-row">
               <TouchableOpacity className="relative w-[45%]">
                 <Image
                   source={require("../../assets/images/bodyarticles.png")}
@@ -177,7 +189,7 @@ const savedArticles = () => {
                   </View>
                 </View>
               </TouchableOpacity>
-            </View>
+            </View> */}
           </View>
         </ScrollView>
       </View>

@@ -1,4 +1,3 @@
-import { View, Text } from "react-native";
 import React, { useLayoutEffect, useEffect, useState } from "react";
 import { Stack, SplashScreen } from "expo-router";
 import { StatusBar } from "expo-status-bar";
@@ -8,8 +7,8 @@ import { Asset } from "expo-asset";
 import { SQLiteProvider } from "expo-sqlite/next";
 
 const loadDatabase = async () => {
-  const dbName = "rabbitsguide.db";
-  const dbAsset = require("../assets/rabbitsguide.db");
+  const dbName = "rabbidsguide.db";
+  const dbAsset = require("../assets/database/rabbidsguide.db");
   const dbUri = Asset.fromModule(dbAsset).uri;
   const dbFilePath = `${FileSystem.documentDirectory}SQLite/${dbName}`;
 
@@ -39,6 +38,7 @@ const RootLayout = () => {
     "Abel-Pro": require("../assets/fonts/Abel-Pro.otf"),
     "Abel-Pro-Bold": require("../assets/fonts/Abel-Pro-Bold.otf"),
   });
+
   useEffect(() => {
     loadDatabase()
       .then(() => setDbLoaded(true))
@@ -57,12 +57,13 @@ const RootLayout = () => {
   }
 
   return (
-    <SQLiteProvider databaseName="rabbitsguide.db">
+    <SQLiteProvider databaseName="rabbidsguide.db">
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="about" options={{ headerShown: false }} />
         <Stack.Screen name="ubisoft" options={{ headerShown: false }} />
+
         <Stack.Screen name="user.chapters" options={{ headerShown: false }} />
         <Stack.Screen name="user2.chapters" options={{ headerShown: false }} />
         <Stack.Screen name="user3.chapters" options={{ headerShown: false }} />
